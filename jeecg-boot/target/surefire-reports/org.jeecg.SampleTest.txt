@@ -1,0 +1,46 @@
+-------------------------------------------------------------------------------
+Test set: org.jeecg.SampleTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 2.018 s <<< FAILURE! - in org.jeecg.SampleTest
+testTran(org.jeecg.SampleTest)  Time elapsed: 0.006 s  <<< ERROR!
+java.lang.IllegalStateException: Failed to load ApplicationContext
+Caused by: java.lang.IllegalStateException: Failed to load property source from location 'classpath:/application.yml'
+Caused by: org.yaml.snakeyaml.scanner.ScannerException: 
+while scanning a simple key
+ in 'reader', line 98, column 1:
+    webapp:C://jeecgBoot//webapp
+    ^
+could not find expected ':'
+ in 'reader', line 99, column 1:
+    
+    ^
+
+
+testSelect(org.jeecg.SampleTest)  Time elapsed: 0 s  <<< ERROR!
+java.lang.IllegalStateException: Failed to load ApplicationContext
+Caused by: java.lang.IllegalStateException: Failed to load property source from location 'classpath:/application.yml'
+Caused by: org.yaml.snakeyaml.scanner.ScannerException: 
+while scanning a simple key
+ in 'reader', line 98, column 1:
+    webapp:C://jeecgBoot//webapp
+    ^
+could not find expected ':'
+ in 'reader', line 99, column 1:
+    
+    ^
+
+
+testXmlSql(org.jeecg.SampleTest)  Time elapsed: 0 s  <<< ERROR!
+java.lang.IllegalStateException: Failed to load ApplicationContext
+Caused by: java.lang.IllegalStateException: Failed to load property source from location 'classpath:/application.yml'
+Caused by: org.yaml.snakeyaml.scanner.ScannerException: 
+while scanning a simple key
+ in 'reader', line 98, column 1:
+    webapp:C://jeecgBoot//webapp
+    ^
+could not find expected ':'
+ in 'reader', line 99, column 1:
+    
+    ^
+
+
