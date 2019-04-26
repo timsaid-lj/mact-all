@@ -69,7 +69,7 @@
             :headers="headers"
             :beforeUpload="beforeUpload"
             @change="handleChange"
-          >
+            >
             <img v-if="model.avatar" :src="getAvatarView()" alt="头像" style="height:104px;max-width:300px"/>
             <div v-else>
               <a-icon :type="uploadLoading ? 'loading' : 'plus'" />

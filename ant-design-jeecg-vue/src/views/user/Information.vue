@@ -2,9 +2,9 @@
   <div class="main user-layout-register">
     <h3><span>信息采集/information collection</span></h3>
     <a-form ref="formRegister" :autoFormCreate="(form)=>{this.form = form}" id="formRegister">
-      <a-form-item
-        fieldDecoratorId="userName"
-        :fieldDecoratorOptions="{rules: [{ required: true,  message: '请输入姓名/username' }], validateTrigger: ['change', 'blur']}">
+      <a-form-item>
+        <!--fieldDecoratorId="userName"
+        :fieldDecoratorOptions="{rules: [{ required: true,  message: '请输入姓名/username' }], validateTrigger: ['change', 'blur']}"-->
         <a-input size="large" type="text" placeholder="姓名/username"></a-input>
       </a-form-item>
 
@@ -12,24 +12,22 @@
         <!--fieldDecoratorId="userSex"
         :fieldDecoratorOptions="{rules: [{ required: true,  message: '请选择性别/sex' }], validateTrigger: ['change', 'blur']}"-->
 
-        <span>请选择性别/sex{{ userSex }}</span>
-        <a-radio-group @change="onChangeMenuType" v-decorator="['menuType',{'initialValue':1}]" >
+        <span>请选择性别/sex</span>
+        <a-radio-group v-decorator="['menuType',{'initialValue':1}]" >
           <a-radio :value="1" class="radio-userSex-man">男</a-radio>
           <a-radio :value="2" class="radio-userSex-woman">女</a-radio>
         </a-radio-group>
       </a-form-item>
 
-      <a-form-item
-        fieldDecoratorId="userBirthday"
-        :fieldDecoratorOptions="{rules: [{ required: true,  message: '请选择出生日期/birthday' }], validateTrigger: ['change', 'blur']}" >
+      <a-form-item>
+        <!--fieldDecoratorId="userBirthday"
+        :fieldDecoratorOptions="{rules: [{ required: true,  message: '请选择出生日期/birthday' }], validateTrigger: ['change', 'blur']}" -->
         <a-date-picker  style="width: 100%" placeholder="请选择出生日期/birthday" v-decorator="[ 'birthday', {}]" />
       </a-form-item>
 
-      <a-form-item
-        :labelCol="labelCol"
-        :wrapperCol="wrapperCol">
-         <!--fieldDecoratorId="userEducational"
-         :fieldDecoratorOptions="{rules: [{ required: true,  message: '请选择当前学历/educational background' }], validateTrigger: ['change', 'blur']}"-->
+      <a-form-item>
+        <!--fieldDecoratorId="userEducational"
+        :fieldDecoratorOptions="{rules: [{ required: true,  message: '请选择当前学历/educational background' }], validateTrigger: ['change', 'blur']}"-->
         <a-select
           style="width: 100%"
           v-decorator="['userEducational', {}]" placeholder="请选择当前学历/educational background">
@@ -68,7 +66,6 @@
   import AInputGroup from 'ant-design-vue/es/input/Group'
   import ARadioGroup from 'ant-design-vue/es/radio/Group'
   import ARadioButton from 'ant-design-vue/es/radio/RadioButton'
-
   const levelNames = {
     0: '低',
     1: '低',
@@ -122,11 +119,8 @@
       }
     },
     methods: {
-
       handlePasswordLevel (rule, value, callback) {
-
         let level = 0
-
         // 判断这个字符串中有没有数字
         if (/[0-9]/.test(value)) {
           level++
@@ -153,7 +147,6 @@
           callback(new Error('密码强度不够'))
         }
       },
-
       handlePasswordCheck (rule, value, callback) {
         let password = this.form.getFieldValue('password')
         console.log('value', value)
@@ -165,15 +158,12 @@
         }
         callback()
       },
-
       handlePhoneCheck (rule, value, callback) {
         console.log('handlePhoneCheck, rule:', rule)
         console.log('handlePhoneCheck, value', value)
         console.log('handlePhoneCheck, callback', callback)
-
         callback()
       },
-
       handlePasswordInputClick () {
         if (!this.isMobile()) {
           this.state.passwordLevelChecked = true
@@ -181,7 +171,6 @@
         }
         this.state.passwordLevelChecked = false
       },
-
       handleSubmit() {
         this.form.validateFields((err, values) => {
           if (!err) {
@@ -189,16 +178,13 @@
           }
         })
       },
-
       getCaptcha(e) {
         e.preventDefault()
         let that = this
-
         this.form.validateFields(['mobile'], {force: true},
           (err, values) => {
             if (!err) {
               this.state.smsSendBtn = true;
-
               let interval = window.setInterval(() => {
                 if (that.state.time-- <= 0) {
                   that.state.time = 60;
@@ -206,9 +192,7 @@
                   window.clearInterval(interval);
                 }
               }, 1000);
-
               const hide = this.$message.loading('验证码发送中..', 0);
-
               getSmsCaptcha({mobile: values.mobile}).then(res => {
                 setTimeout(hide, 2500);
                 this.$notification['success']({
@@ -239,29 +223,22 @@
     watch: {
       'state.passwordLevel' (val) {
         console.log(val)
-
       }
     }
   }
 </script>
 <style lang="scss">
   .user-register {
-
     &.error {
       color: #ff0000;
     }
-
     &.warning {
       color: #ff7e05;
     }
-
     &.success {
       color: #52c41a;
     }
-
-
   }
-
   .user-layout-register {
     .ant-input-group-addon:first-child {
       background-color: #fff;
@@ -270,20 +247,15 @@
 </style>
 <style lang="scss" scoped>
   .user-layout-register {
-
     & > h3 {
       font-size: 16px;
       margin-bottom: 20px;
     }
-
-
-
     .getCaptcha {
       display: block;
       width: 100%;
       height: 40px;
     }
-
     .register-button {
       width: 50%;
     }
@@ -293,7 +265,6 @@
     .radio-userSex-woman{
       left: 100%;
     }
-
     .login {
       float: right;
       line-height: 40px;

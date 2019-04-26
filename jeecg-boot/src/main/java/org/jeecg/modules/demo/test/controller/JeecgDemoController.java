@@ -302,7 +302,7 @@ public class JeecgDemoController {
 	@GetMapping(value = "/hello")
 	public Result<String> hello() {
         Result<String> result = new Result<String>();
-        result.setResult("近几年来，父亲和我都是东奔西走，家中光景是一日不如一日。他少年出外谋生，独力支持，做了许多大事。哪知老境却如此颓唐！他触目伤怀，自然情不能自已。情郁于中，自然要发之于外；家庭琐屑便往往触他之怒。他待我渐渐不同往日。但最近两年不见，他终于忘却我的不好，只是惦记着我，惦记着他的儿子。我北来后，他写了一信给我，信中说道：“我身体平安，惟膀子疼痛厉害，举箸14提笔，诸多不便，大约大去之期15不远矣。”我读到此处，在晶莹的泪光中，又看见那肥胖的、青布棉袍黑布马褂的背影。唉！我不知何时再能与他相见！");
+        result.setResult("他兴奋的去银行办理业务、发现卡里有比想象中更多的存款");
         result.setSuccess(true);
         return result;
     }

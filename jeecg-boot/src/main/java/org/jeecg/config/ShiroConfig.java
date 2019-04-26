@@ -57,6 +57,7 @@ public class ShiroConfig {
 
         filterChainDefinitionMap.put("/test/jeecgDemo/hello", "anon");
         filterChainDefinitionMap.put("/test/home", "anon");
+		filterChainDefinitionMap.put("/sys/common/upload", "anon");//文件上传不限制token
 
 
 

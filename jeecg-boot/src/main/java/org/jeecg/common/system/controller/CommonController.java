@@ -46,6 +46,7 @@ public class CommonController {
 	@PostMapping(value = "/upload")
 	public Result<SysUser> upload(HttpServletRequest request, HttpServletResponse response) {
 		Result<SysUser> result = new Result<>();
+		System.out.println("我就测试下能跑到这儿吗123");
 		try {
 			String ctxPath = uploadpath;
 			String fileName = null;
@@ -55,8 +56,10 @@ public class CommonController {
 			if (!file.exists()) {
 				file.mkdirs();// 创建文件根目录
 			}
+
 			MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
 			MultipartFile mf = multipartRequest.getFile("file");// 获取上传文件对象
+			System.out.println(mf.getSize());
 			String orgName = mf.getOriginalFilename();// 获取文件名
 			fileName = orgName.substring(0, orgName.lastIndexOf(".")) + "_" + System.currentTimeMillis() + orgName.substring(orgName.indexOf("."));
 			String savePath = file.getPath() + File.separator + fileName;
@@ -73,6 +76,7 @@ public class CommonController {
 			result.setMessage(e.getMessage());
 			e.printStackTrace();
 		}
+		System.out.println("jjjjj");
 		return result;
 	}
 
